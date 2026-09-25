@@ -71,6 +71,19 @@ jobs:
       - name: Check README contract tables
         run: python .github/scripts/check_readme_contracts.py
 
+  scripts-python:
+    name: Script unit tests and doc checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Testnet reset detection tests
+        run: python3 -m unittest discover -s scripts/testnet_reset
+      - name: lafiya-web error mapping matches docs/error-codes.md
+        run: python3 scripts/conformance/check_web_error_mapping.py
+
   fuzz:
     name: Fuzz (proptest, non-blocking)
     runs-on: ubuntu-latest

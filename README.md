@@ -379,6 +379,8 @@ lafiya-web  ──(record hash)──▶  lafiya-contracts
 
 **Attestation schema** — a hash of the record + the attester's identity + a timestamp, defined by the contracts in this repo and consumed by `lafiya-web`'s public emergency page. If the shape of an attestation changes here, `lafiya-web`'s verification-display logic must be updated in the same change set (or a tracked follow-up opened there).
 
+The verification read calls, caching rules, display specification, error-to-UX mapping, and PR conformance checklist for `lafiya-web` are defined in [docs/integration/lafiya-web.md](docs/integration/lafiya-web.md).
+
 ### Conventions for AI Agents
 
 - Treat this section as the source of truth for **cross-repo** contracts. Each repo's own README covers repo-local conventions.
